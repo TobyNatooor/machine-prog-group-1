@@ -6,13 +6,25 @@ hide circle
 
 title Assigment 1, Finding the Middle Point
 
-class "Get the values of A and B" 
-class "Subtract A from B"
+' class "Get the values of A and B"
+' diamond "The resulting value is 0"
 
-"Get the values of A and B" --> "Subtract A from B"
-"Subtract A from B" --> "The resulting value is 0"
-"The resulting value is 0" --> "The middle point has been found":true
-"The resulting value is 0" --> "Subtract A by 1, add B by 1":false
-"Subtract A by 1, add B by 1" --> "Subtract A from B"
+' "Get the values of A and B" --> "Subtract A from B"
+' "Subtract A from B" --> "The resulting value is 0"
+' "The resulting value is 0" --> "The middle point has been found":true
+' "The resulting value is 0" --> "Subtract A by 1, add B by 1":false
+' "Subtract A by 1, add B by 1" --> "Subtract A from B"
+
+start
+:Get the values of A and B;
+repeat
+    :Subtract A from B;
+    if (The resulting value is 0) then (yes)
+        :The middle point has been found;
+        stop
+    else (no)
+
+    endif
+repeat while (Subtract A by 1, add B by 1)
 
 @enduml
