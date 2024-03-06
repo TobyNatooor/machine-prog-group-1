@@ -17,18 +17,16 @@
         HALT
         
 resultS AND R1, R1, x0
-        NOT R1, R1
+        ADD R1, R1, #1
         AND R1, R1, R0
-        
-        BRz ZERO
-        LEA R0, IS_PRI
-        BRnp CONTINU
-        
-ZERO    LEA R0, NOT_PRI
-
-CONTINU PUTS
+        BRz NOT_P
+        LEA R0, IS_P_STR
+        PUTS
+        RET
+NOT_P   LEA R0, NO_P_STR
+        PUTS
         RET
         
-IS_PRI  .STRINGZ "The number is prime\n"
-NOT_PRI .STRINGZ "The number is not prime\n"
+IS_P_STR .STRINGZ "The number is prime\n"
+NO_P_STR .STRINGZ "The number is not prime\n"
 .END

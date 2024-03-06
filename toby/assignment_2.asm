@@ -12,36 +12,25 @@
 ;   3.  Returns the number read from the console in register R0
 
 .ORIG x3000
-        
         JSR readS
         HALT
         
 readS   LEA R0, INP_STR
+        LD R4, ASCII
         PUTS
-    
         IN
-        ADD R0, R0, #-15
-        ADD R0, R0, #-15
-        ADD R0, R0, #-15
-        ADD R0, R0, #-3
-
+        ADD R0, R0, R4
         AND R1, R1, x0
         AND R3, R3, x0
         ADD R3, R3, #10
-
-X       ADD R1, R1, R0
+LOOP    ADD R1, R1, R0
         ADD R3, R3, #-1
-        BRp X
-        
+        BRp LOOP
         IN
-        ADD R0, R0, #-15
-        ADD R0, R0, #-15
-        ADD R0, R0, #-15
-        ADD R0, R0, #-3
-
+        ADD R0, R0, R4
         ADD R0, R0, R1
         RET
 
 INP_STR .STRINGZ "Input a 2 digit decimal number: "
-; INT     .FILL #-48
+ASCII   .FILL #-48
 .END

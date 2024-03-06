@@ -23,46 +23,30 @@
         AND R0, R0, x0
         ADD R0, R0, #7
         JSR isPrime
-        JSR prinRes
-        
+        JSR resultS
         AND R0, R0, x0
         ADD R0, R0, #3
         JSR isPrime
-        JSR prinRes
-
+        JSR resultS
         AND R0, R0, x0
         ADD R0, R0, #10
         JSR isPrime
-        JSR prinRes
-
+        JSR resultS
         AND R0, R0, x0
         ADD R0, R0, #13
         JSR isPrime
-        JSR prinRes
-
+        JSR resultS
         AND R0, R0, x0
         ADD R0, R0, #8
         JSR isPrime
-        JSR prinRes
-
+        JSR resultS
         HALT
-
-prinRes AND R1, R1, x0
-        ADD R1, R1, #1
-        AND R1, R1, R0
-        BRp PRIN_P
-        LEA R0, PRIME_STR
-        PUTS
-        RET
-PRIN_P  LEA R0, N_PRIME_STR
-        PUTS
-        RET
 
 isPrime AND R1, R1, x0
         ADD R1, R1, R0
 ALL_NUM ADD R1, R1, #-1
         ADD R4, R1, #-1
-        BRz NOT_PRIME
+        BRz PRIME
         AND R2, R2, x0
 ONE_NUM ADD R2, R2, R1
         AND R3, R3, x0
@@ -72,15 +56,24 @@ ONE_NUM ADD R2, R2, R1
         ADD R3, R3, R0
         BRn ALL_NUM 
         BRp ONE_NUM
-        BRz PRIME
-        
+        BRz NOT_PRI
 PRIME   AND R0, R0, x0
         ADD R0, R0, #1
         RET
-NOT_PRIME
-        AND R0, R0, x0
+NOT_PRI AND R0, R0, x0
         RET
 
-PRIME_STR   .STRINGZ "Is prime\n"
-N_PRIME_STR .STRINGZ "Not prime\n"
+resultS AND R1, R1, x0
+        ADD R1, R1, #1
+        AND R1, R1, R0
+        BRz NOT_P
+        LEA R0, IS_P_STR
+        PUTS
+        RET
+NOT_P   LEA R0, NO_P_STR
+        PUTS
+        RET
+        
+IS_P_STR .STRINGZ "The number is prime\n"
+NO_P_STR .STRINGZ "The number is not prime\n"
 .END
