@@ -23,8 +23,8 @@ repeat
         :The middle point has been found;
         stop
     else (no)
-
+        :Subtract A by 1\n add B by 1;
     endif
-repeat while (Subtract A by 1, add B by 1)
+
 
 @enduml
