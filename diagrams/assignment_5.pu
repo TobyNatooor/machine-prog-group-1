@@ -1,0 +1,15 @@
+@startuml assignment_5
+skinparam linetype ortho
+hide empty methods
+hide empty fields
+hide circle
+
+title Assigment 5, Read Number, Testing if it's Prime and Printing the Result
+
+start
+partition  {}
+partition {}
+partition {}
+end
+
+@enduml

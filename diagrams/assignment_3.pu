@@ -1,0 +1,9 @@
+@startuml assignment_3
+skinparam linetype ortho
+hide empty methods
+hide empty fields
+hide circle
+
+title Assigment 3, Testing if a Number is Prime
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml assignment_2
+skinparam linetype ortho
+hide empty methods
+hide empty fields
+hide circle
+
+title Assigment 2, Reading Numbers from the Console
+
+start
+:Write to the console: "Input a 2 digit decimal number: ";
+:Read first digit;
+:Multiply first digit by 10;
+:Read second digit;
+:Add second digit to first digit;
+end
+
+@enduml

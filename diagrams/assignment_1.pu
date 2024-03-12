@@ -1,0 +1,17 @@
+@startuml assignment_1
+skinparam linetype ortho
+hide empty methods
+hide empty fields
+hide circle
+
+title Assigment 1, Finding the Middle Point
+
+start
+:Get the values of A and B;
+while (A - B = 0) is (false)
+    :Subtract A by 1\n add B by 1;
+endwhile (true)
+:The middle point has been found;
+stop
+
+@enduml
