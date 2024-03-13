@@ -1,0 +1,29 @@
+@startuml assignment_5
+skinparam linetype ortho
+hide empty methods
+hide empty fields
+hide circle
+
+title Assigment 5, Read Number, Testing if it's Prime and Printing the Result
+
+start
+partition "Read Number" {
+:Write to the console: "Input a 2 digit decimal number: ";
+:Read first digit;
+:Multiply first digit by 10;
+:Read second digit;
+:Add second digit to first digit;
+}
+partition "Testing if it's Prime" {
+
+}
+partition "Printing the Result" {
+if (Register 0 is 0) then (true)
+:Print to the console "The number is not prime";
+else (false)
+:Print to the console "The number is prime";
+endif
+}
+end
+
+@enduml

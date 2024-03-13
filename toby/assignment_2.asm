@@ -22,8 +22,8 @@ readS   LEA R0, INP_STR
         ADD R0, R0, R4
         AND R1, R1, x0
         AND R3, R3, x0
-        ADD R3, R3, #10
-LOOP    ADD R1, R1, R0
+        ADD R3, R3, R0
+LOOP    ADD R1, R1, #10
         ADD R3, R3, #-1
         BRp LOOP
         IN

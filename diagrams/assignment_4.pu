@@ -1,0 +1,17 @@
+@startuml assignment_4
+skinparam linetype ortho
+hide empty methods
+hide empty fields
+hide circle
+
+title Assigment 4, Printing the Result of the Prime Test
+
+start
+if (Register 0 is 0) then (true)
+:Print to the console "The number is not prime";
+else (false)
+:Print to the console "The number is prime";
+endif
+end
+
+@enduml
