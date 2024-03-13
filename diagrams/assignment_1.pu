@@ -13,6 +13,6 @@ while (A - B = 0) is (false)
     : Increment A\nDecrement B;
 endwhile (true)
 :The middle point has been found;
-stop
+end
 
 @enduml
