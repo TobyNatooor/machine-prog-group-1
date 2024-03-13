@@ -9,8 +9,8 @@ readS   ST R1,SAVE1
         AND R1,R1,#0
         AND R2,R2,#0
         LD R3,ASCII
-IN1     TRAP x23
         ST R7,SAVE7
+IN1     TRAP x23
         JSR CHECK
         BRn IN1
         LD R7,SAVE7
@@ -18,8 +18,8 @@ IN1     TRAP x23
         BRnzp TENx
 CONT    ADD R1,R1,R2
         LD R3,ASCII
-IN2     TRAP x23
         ST R7,SAVE7
+IN2     TRAP x23
         JSR CHECK
         BRn IN2
         LD R7,SAVE7
@@ -50,6 +50,7 @@ CHECK   ST R0,SAVE0
         BRn ERR
         LD R1,SAVE1
         LD R2,SAVE2
+        ADD R0,R0,#0
         RET
         
 ERR     LEA R0,MSG
