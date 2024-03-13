@@ -6,15 +6,14 @@ hide circle
 
 title Assigment 3, Testing if a Number is Prime
 
+start
 :Get a number to test if it's prime;
 if (Number is even) then (yes)
     :Number is not prime;
-    stop
 else (no)
     :Check if number is 1 or less;
     if (Number is 1 or less) then (yes)
         :Number is not prime;
-        stop
     else (no)
         :Set Divisor to 3;
         :Check if divisor is bigger than half the number;
@@ -22,14 +21,13 @@ else (no)
             :Check if number is divisible by divisor;
             if (Number is divisible by divisor) then (yes)
                 :Number is prime;
-                stop
             else (no)
                 :Increase divisor by 2;
             endif
         endwhile (no)
         :Number is not prime;
-        stop
     endif
 endif
+end
 
 @enduml

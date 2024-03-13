@@ -8,9 +8,15 @@ title Assigment 2, Reading Numbers from the Console
 
 start
 :Write to the console: "Input a 2 digit decimal number: ";
-:Read first digit;
+:Read first input character;
+while (First input character is not a digit) is (true)
+    :Write to the console: "Input must be a digit between 0-9";
+endwhile (false)
 :Multiply first digit by 10;
-:Read second digit;
+:Read second input character;
+while (Second input character is not a digit) is (true)
+    :Write to the console: "Input must be a digit between 0-9";
+endwhile (false)
 :Add second digit to first digit;
 end
 
