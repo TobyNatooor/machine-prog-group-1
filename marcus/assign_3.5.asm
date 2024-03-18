@@ -87,9 +87,6 @@ ASCII   .FILL #-48
 ;Function for checking if number is prime       ;
 ;                                               ;
 ;===============================================;
-
-;First checks to see if number is even. Then proceeds to divide given number(R2<-R0),
-;with each uneven number (R1) until (-R1) + (-R1) + 3 < R2 
         
 isPrime ST      R1,save1
         ST      R2,save2
@@ -98,24 +95,39 @@ isPrime ST      R1,save1
         BRz     notP
         ADD     R3,R0,#-1   ;Check to see if R0 <= 1
         BRnz    notP
+
+;We set R1 to be the divisor. Since we will divide, by subtracting the divisor from divident 
+;until we reach zero or a negativ number, the divisor (R1) will be the negativ value, of the amount
+;we wish to divide with.
+;Since we know it's an uneven number, we will start by dividing by 3. 
         
 cont    AND     R1,R1,#0
-        ADD     R1,R1,#-3   ;R1 will be the divider
+        ADD     R1,R1,#-3
         
 
-;Start of loop to check if R2 is a factor of R1 (R2)        
+;-----
+;#### Start of loop to check if R0 is prime ####
+;-----
+
+;First we check if the divisor (R1) is greater than half of R0 rounded down, since anything greater will 
+;never be a factor.
+;If R1 is greater, it means we have divided R0, with everything below, and didn't find a factor, and
+;and therefor R0 is a primenumber.        
 loopP   AND     R3,R3,#0
         ADD     R3,R1,R1
         ADD     R3,R3,R0
+;Since R1 is negativ, then if R1+R1+R0 <= 0, it means the divisor (R1) is greater than half of divident (R0)
         BRnz    isP
         AND     R2,R2,#0
-        ADD     R2,R2,R0    ;R2 will the divided (our number input)
-;We subtract the divider from the divided until we either reach a negtive rest or 0
+        ADD     R2,R2,R0    ;R2 will the divident
+
+;Start of division
+;We subtract the divisor from divident until we either reach a negtive rest or 0
 divide  ADD     R2,R2,R1    
         BRp     divide      
         BRz     notP        ;If rest = 0, R0 is not a prime
         ADD     R1,R1,#-2   ;If rest < 0, we continue with a higher (uneven) divider (--)
-        BRnzp   loopP       ;If divider > 1 (negative of R2), we continue loop
+        BRnzp   loopP       
  
  
 notP    AND     R0,R0,#0
