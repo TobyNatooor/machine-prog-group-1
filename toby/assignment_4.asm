@@ -3,7 +3,6 @@
 ; prime” else it should display the message “The number is not prime”.
 
 .ORIG x3000
-        
         ; Tests for the function
         AND R0, R0, #0
         ADD R0, R0, #1
